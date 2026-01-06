@@ -1,0 +1,37 @@
+{
+    "version": "1.0.0",
+    "updated": "2026-01-05",
+    "tidal": {
+        "mirrors": [
+            "vogel.qqdl.site",
+            "maus.qqdl.site",
+            "hund.qqdl.site",
+            "katze.qqdl.site",
+            "wolf.qqdl.site",
+            "tidal.kinoplus.online",
+            "tidal-api.binimum.org",
+            "triton.squid.wtf"
+        ],
+        "urlTemplate": "https://{domain}/track/?id={id}&quality=LOSSLESS"
+    },
+    "qobuz": {
+        "mirrors": [
+            "https://dab.yeet.su/api/stream",
+            "https://dabmusic.xyz/api/stream"
+        ],
+        "urlTemplate": "{domain}?trackId={id}&quality=27"
+    },
+    "amazon": {
+        "regions": [
+            "us.doubledouble.top",
+            "eu.doubledouble.top"
+        ],
+        "urlTemplate": "https://{domain}/dl?url={id}"
+    },
+    "deezer": {
+        "mirrors": [
+            "api.deezmate.com"
+        ],
+        "urlTemplate": "https://{domain}/dl/{id}"
+    }
+}
