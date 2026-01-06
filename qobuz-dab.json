@@ -1,0 +1,32 @@
+{
+    "id": "qobuz-dab",
+    "name": "Qobuz (DAB)",
+    "description": "Downloads Hi-Res FLAC from Qobuz using DAB APIs.",
+    "type": "downloader",
+    "author": "Kmax",
+    "version": "0.9.2",
+    "domains": [
+        "qobuz.com"
+    ],
+    "updateUrl": "https://raw.githubusercontent.com/royalashu4u/Kiokuu-extensions/main/qobuz-dab.json",
+    "capabilities": [
+        "http"
+    ],
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36"
+    },
+    "download": {
+        "resolver": {
+            "url": "https://api.song.link/v1-alpha.1/links?url=https://open.spotify.com/track/{id}",
+            "responseType": "json",
+            "resultPath": "linksByPlatform.qobuz.url",
+            "regex": "/(\\d+)$",
+            "regexGroup": 1
+        },
+        "mirrorListUrl": "https://raw.githubusercontent.com/royalashu4u/Kiokuu-extensions/refs/heads/main/mirrors/mirrors.json",
+        "mirrorPath": "qobuz.mirrors",
+        "mirrorUrlTemplate": "{domain}?trackId={id}&quality=27",
+        "responseType": "json",
+        "urlPath": "url"
+    }
+}

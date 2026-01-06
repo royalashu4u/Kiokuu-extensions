@@ -1,0 +1,38 @@
+{
+    "id": "amazon-doubledouble",
+    "name": "Amazon Music (Doubledouble)",
+    "description": "Downloads Ultra HD FLAC from Amazon Music using Doubledouble API with async polling.",
+    "type": "downloader",
+    "author": "Kmax",
+    "version": "0.9.2",
+    "domains": [
+        "amazon.com",
+        "music.amazon.com"
+    ],
+    "updateUrl": "https://raw.githubusercontent.com/royalashu4u/Kiokuu-extensions/main/amazon-doubledouble.json",
+    "capabilities": [
+        "http"
+    ],
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36"
+    },
+    "download": {
+        "resolver": {
+            "url": "https://api.song.link/v1-alpha.1/links?url=https://open.spotify.com/track/{id}",
+            "responseType": "json",
+            "resultPath": "linksByPlatform.amazonMusic.url"
+        },
+        "mirrorListUrl": "https://raw.githubusercontent.com/royalashu4u/Kiokuu-extensions/refs/heads/main/mirrors/mirrors.json",
+        "mirrorPath": "amazon.regions",
+        "mirrorUrlTemplate": "https://{domain}/dl?url={id}",
+        "responseType": "json",
+        "urlPath": "id",
+        "isPolling": true,
+        "pollUrl": "https://us.doubledouble.top/dl/{id}",
+        "pollStatusPath": "status",
+        "pollStatusValue": "done",
+        "pollResultPath": "url",
+        "pollInterval": 3000,
+        "maxPollAttempts": 100
+    }
+}
