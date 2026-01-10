@@ -1,0 +1,41 @@
+{
+    "id": "tidal-hifi",
+    "name": "Tidal (HiFi Direct)",
+    "description": "Downloads CD-quality FLAC (16-bit/44.1kHz) from Tidal using HiFi API mirrors. Uses squid.wtf songlink for better ID resolution.",
+    "type": "downloader",
+    "author": "Kmax",
+    "version": "1.0.0",
+    "domains": [
+        "tidal.com",
+        "listen.tidal.com"
+    ],
+    "updateUrl": "https://raw.githubusercontent.com/royalashu4u/Kiokuu-extensions/main/tidal-hifi.json",
+    "capabilities": [
+        "http"
+    ],
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36"
+    },
+    "download": {
+        "resolver": {
+            "url": "https://tidal.squid.wtf/api/songlink?url=https://open.spotify.com/track/{id}&userCountry=US",
+            "responseType": "json",
+            "resultPath": "linksByPlatform.tidal.url",
+            "regex": "/track/(\\d+)",
+            "regexGroup": 1
+        },
+        "mirrorListUrl": "https://raw.githubusercontent.com/royalashu4u/Kiokuu-extensions/main/mirrors/mirrors.json",
+        "mirrorPath": "tidal.hifiMirrors",
+        "mirrorUrlTemplate": "{domain}/track/?id={id}&quality=LOSSLESS",
+        "responseType": "json",
+        "manifestPath": "data.manifest",
+        "manifestUrlPath": "urls",
+        "infoUrl": "{domain}/info/?id={id}",
+        "infoTitlePath": "data.title",
+        "infoArtistPath": "data.artist.name",
+        "infoAlbumPath": "data.album.title",
+        "infoCoverPath": "data.album.cover",
+        "infoCoverUrlPrefix": "https://resources.tidal.com/images/",
+        "infoIsrcPath": "data.isrc"
+    }
+}
